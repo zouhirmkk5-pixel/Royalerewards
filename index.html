@@ -5,14 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clash Royale Reward</title>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPNW091TKK"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-NPNW091TKK');
-</script>
-
 <style>
 body{
   margin:0;
@@ -25,9 +17,17 @@ body{
   color:white;
 }
 .container{
-  max-width:350px;
   width:90%;
+  max-width:350px;
   text-align:center;
+}
+h1{
+  font-size:26px;
+  margin-bottom:15px;
+}
+p{
+  color:#ccc;
+  margin-bottom:20px;
 }
 button{
   width:100%;
@@ -39,12 +39,13 @@ button{
   cursor:pointer;
   font-weight:bold;
 }
-input{
-  width:100%;
-  padding:14px;
-  margin-bottom:15px;
-  border:none;
-  border-radius:8px;
+button:hover{
+  transform:scale(1.03);
+}
+.small{
+  margin-top:15px;
+  font-size:12px;
+  color:#888;
 }
 </style>
 </head>
@@ -52,28 +53,25 @@ input{
 <body>
 
 <div class="container">
-  <h2>🎁 Unlock Your Reward</h2>
-
-  <input type="text" placeholder="Enter your ID">
+  <h1>🎁 Free Reward Available</h1>
+  <p>Tap below to continue and unlock your reward.</p>
 
   <button onclick="go()">Continue ➜</button>
+
+  <div class="small">Secure • Fast • No spam</div>
 </div>
 
 <script>
 const link = "https://ogam.site/cl/i/n66xj9";
 
-// ❗ مهم: redirect مباشر (بدون delay)
 function go(){
-  if (typeof gtag !== "undefined") {
-    gtag('event','click_verify_button');
+  // tracking (اختياري)
+  if(typeof gtag !== "undefined"){
+    gtag('event','click');
   }
 
+  // redirect مباشر (مهم)
   window.location.href = link;
-}
-
-// ❗ TikTok hint
-if(navigator.userAgent.includes("TikTok")){
-  console.log("TikTok traffic detected");
 }
 </script>
 
