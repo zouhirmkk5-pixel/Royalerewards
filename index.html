@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Clash Royale Reward</title>
 
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPNW091TKK"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -15,83 +14,37 @@ gtag('config', 'G-NPNW091TKK');
 </script>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
 body{
+  margin:0;
   height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+  background:#0f172a;
+  font-family:Arial;
+  color:white;
 }
 .container{
-  background: rgba(0,0,0,0.95);
-  padding: 45px;
-  border-radius: 25px;
-  width: 95%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 0 40px rgba(0,0,0,0.9);
-}
-h1{
-  font-size:28px;
-  margin-bottom:15px;
-  color:#ffd700;
-}
-p{
-  font-size:16px;
-  color:#ccc;
-  margin-bottom:25px;
-}
-input{
-  padding:14px;
+  max-width:350px;
   width:90%;
+  text-align:center;
+}
+button{
+  width:100%;
+  padding:18px;
+  font-size:20px;
+  background:#22c55e;
   border:none;
   border-radius:10px;
-  margin-bottom:20px;
-  font-size:15px;
-}
-.button{
-  background:#ffcc00;
-  color:black;
-  padding:18px;
-  width:100%;
-  font-size:20px;
-  border:none;
-  border-radius:12px;
   cursor:pointer;
   font-weight:bold;
-  transition:0.3s;
 }
-.button:hover{
-  transform:scale(1.05);
-}
-.progress{
-  margin-top:20px;
-  background:#222;
-  border-radius:15px;
-  overflow:hidden;
-  height:12px;
-}
-.bar{
-  height:12px;
-  width:0%;
-  background:#00ff88;
-  transition:width 0.4s;
-}
-.timer{
-  margin-top:10px;
-  font-size:13px;
-  color:#ff4444;
-}
-.stats{
-  margin-top:20px;
-  font-size:15px;
-  color:#3b82f6;
-}
-.small{
-  margin-top:15px;
-  font-size:11px;
-  color:#777;
+input{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:8px;
 }
 </style>
 </head>
@@ -99,59 +52,29 @@ input{
 <body>
 
 <div class="container">
-<h1>🎁 Unlock Your Reward</h1>
-<p>Complete a quick step to claim your exclusive chest.</p>
+  <h2>🎁 Unlock Your Reward</h2>
 
-<input type="text" placeholder="Enter your username">
+  <input type="text" placeholder="Enter your ID">
 
-<button class="button" onclick="goOffer()">Unlock Now 🎁</button>
-
-<div class="progress"><div class="bar" id="progressBar"></div></div>
-<div class="timer">Limited time offer ⏳</div>
-<div class="stats">🔥 <span id="counter">97</span> users claimed rewards today</div>
-<div class="small">Secure verification • No spam</div>
+  <button onclick="go()">Continue ➜</button>
 </div>
 
 <script>
+const link = "https://ogam.site/cl/i/n66xj9";
 
-// 🔗 دير هنا اللينك ديال offer ديالك
-const lockerLink = "https://ogam.site/cl/i/n66xj9";
-
-// 👇 TikTok detection (important for iPhone)
-var ua = navigator.userAgent || "";
-if (ua.includes("TikTok")) {
-  setTimeout(() => {
-    alert("Tap 'Unlock Now' to continue.");
-  }, 800);
-}
-
-// 👇 Button click (optimized conversion)
-function goOffer(){
-  gtag('event', 'click_verify_button');
-
-  setTimeout(() => {
-    window.location.href = lockerLink;
-  }, 700);
-}
-
-// 👇 Progress animation
-let width=0;
-let bar=document.getElementById("progressBar");
-setInterval(()=>{
-  if(width<100){
-    width+=4;
-    bar.style.width=width+"%";
+// ❗ مهم: redirect مباشر (بدون delay)
+function go(){
+  if (typeof gtag !== "undefined") {
+    gtag('event','click_verify_button');
   }
-},200);
 
-// 👇 Fake counter (boost conversion)
-let counterEl = document.getElementById('counter');
-let counter = 97;
-setInterval(()=>{
-  counter += Math.floor(Math.random()*2);
-  counterEl.innerText = counter;
-}, 3000);
+  window.location.href = link;
+}
 
+// ❗ TikTok hint
+if(navigator.userAgent.includes("TikTok")){
+  console.log("TikTok traffic detected");
+}
 </script>
 
 </body>
